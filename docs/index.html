@@ -17,6 +17,24 @@
       text-align: center;
     }
   </style>
+  <script type="application/javascript">
+    (function() {
+    const output = document.getElementById('output');
+    const input = document.getElementById('input');
+    input.onfocus = function() {
+      setTimeout(function() {
+        output.innerText += ' => ' + measureHeight(); 
+      }, 2000);
+    };
+    setTimeout(function() {
+        output.innerText = measureHeight();
+    }, 100);
+
+    function measureHeight() {
+      return document.body.scrollHeight + '/' + document.body.clientHeight;
+    }
+})();
+  </script>
 </head>
 <body>
   <input type="text" id="input" autocomplete="off" autofocus="true" />
