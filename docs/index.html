@@ -20,25 +20,25 @@
 </head>
 <body>
   <input type="text" id="input" autocomplete="off" />
-  <div id="output">-</div>
+  <div id="output">--</div>
   
-    <script type="application/javascript">
+  <script type="application/javascript">
     (function() {
-    const output = document.getElementById('output');
-    const input = document.getElementById('input');
-    input.onfocus = function() {
+      var output = document.getElementById('output');
+      var input = document.getElementById('input');
+      input.onfocus = function() {
+        setTimeout(function() {
+          output.innerText += ' => ' + measureHeight(); 
+        }, 2000);
+      };
       setTimeout(function() {
-        output.innerText += ' => ' + measureHeight(); 
-      }, 2000);
-    };
-    setTimeout(function() {
-        output.innerText = measureHeight();
-    }, 100);
+          output.innerText = measureHeight();
+      }, 100);
 
-    function measureHeight() {
-      return document.body.scrollHeight + '/' + document.body.clientHeight;
-    }
-})();
+      function measureHeight() {
+        return document.body.scrollHeight + '/' + document.body.clientHeight;
+      }
+    })();
   </script>
 </body>
 </html>
